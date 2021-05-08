@@ -1,0 +1,162 @@
+﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="MyProject1.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script>
+        //google
+     
+  //              function signOut() {
+  //  var auth2 = gapi.auth2.getAuthInstance();
+  //  auth2.signOut().then(function () {
+  //                  console.log('User signed out.');
+  //  });
+  //}
+
+        //
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <%-- DataTables  --%>
+    <link href="DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <%-- Bootstrap css --%>
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+     <%-- J-query --%>
+    <script src="Bootstrap/js/jquery-3.5.1.js"></script>
+    <%-- Popper --%>
+    <script src="Bootstrap/js/popper.min.js"></script>
+    
+    <%-- Bootstrap js  --%>
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+ 
+    <%-- FontAwesome --%>
+    <link href="fontawesome-free-5.13.0-web/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet" />
+    <%-- MyCss --%>
+    <link href="MyCss/CssMaster.css" rel="stylesheet" />
+    </head>
+<body><form id="form1" runat="server">
+        
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="Welcome.aspx">
+                    <img src="Img/HydraIcons/PinkHydra.png" width="30" height="30" />
+                    Hydra
+                </a>
+ 
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+ 
+
+                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="Welcome.aspx">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#about-us" id="aboutus" runat="server">About Us</a>
+                        </li>
+                        <li class="nav-item active">
+                            &nbsp;</li>
+ 
+                    </ul>
+                     <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:black!important;border:none!important;">
+    Categories
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color:black;">
+    <a class="dropdown-item"  style=" color:gray!important ;" href="Categories.aspx"> See All Categories</a>
+      <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+          <ItemTemplate><a class="dropdown-item"  style=" color:gray!important" href="<%#"ProductWithCategory.aspx?Cat="+ Eval("Label")%>"> <%#Eval("Label")%></a></ItemTemplate>
+          
+      </asp:Repeater>
+  </div>
+</div>
+ 
+                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" SelectCommand="SELECT [Label] FROM [Type]"></asp:SqlDataSource>
+                    <ul class="navbar-nav">
+                        
+                        <li class="nav-item ">
+                            <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" PostBackUrl="~/Login.aspx">Log in</asp:LinkButton>
+                        </li>
+                        <li class="nav-item  ">
+                            <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" PostBackUrl="~/SignIn.aspx">Sign Up</asp:LinkButton>
+                        </li>
+                         <li class="nav-item ">
+                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server" PostBackUrl="~/Cart.aspx"   >
+                                <img src="Img/HydraIcons/Cart.png" alt=""  class="navbar-toggler-icon" data-toggle="tooltip" data-placement="bottom" title="Cart"/>
+                            </asp:LinkButton>
+                        </li>
+                        
+                        
+ 
+                        <li class="nav-item active" ID="UserList" runat="server">
+                            
+                             <div class="pull-right" >
+                        
+                <ul class="nav pull-right" >
+                    <li class="dropdown mt-2" ><a href="#" class="dropdown-toggle" data-toggle="dropdown"  runat="server" id="UsernameDisplay"> <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="background-color:black!important">
+                            <li style="margin-left: 35px; color:gray!important "><a href="OrderHistory.aspx"  ><i class="icon-cog"></i> My Orders </a></li>
+                          
+                            <li class="divider"></li> 
+                            <li  style="margin-left: 35px; color:gray!important"><a href="#" runat="server" onserverclick="Logout_Click" onclick="signOut();"><i class="icon-off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+ 
+                        </li>
+                    </ul>
+                </div>
+ 
+ 
+            </nav>
+        </div>
+         <%-- Main Content PlaceHolder --%>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+         <%-- Main Content PlaceHolder --%>
+
+        <!-- Footer -->
+        <footer class="mt-5">
+           <div id="footer1" class="container-fluid fixed-bottom" runat="server" style="margin-bottom:39px; ">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center" >
+                        <p>
+                            &nbsp;
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton12" runat="server" OnClick="LinkButton12_Click" PostBackUrl="~/AddSeller.aspx" >Seller Management</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton8" runat="server" PostBackUrl="~/AddProducts.aspx">Product Inventory</asp:LinkButton>
+                            &nbsp;
+                            &nbsp;
+                             <asp:LinkButton class="footerlinks" ID="LinkButton10" runat="server" PostBackUrl="~/AddUser.aspx">Member Management</asp:LinkButton>
+                        </p>
+ 
+                    </div>
+ 
+                </div>
+            </div>
+              <div id="footer2" class="container-fluid fixed-bottom  " style="width:100%" >
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <p style="color:whitesmoke">&copy All right Reversed. <a class="footerlinks" href="#" target="_blank"> Hydra </a></p>
+                    </div>
+                </div>
+            </div>
+ 
+        </footer>
+        <!-- ./Footer -->
+
+
+
+    </form>
+</body>
+</html>
+  

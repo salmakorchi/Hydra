@@ -1,0 +1,19 @@
+﻿.navbar {
+   background-color:black !important;
+}
+.navbar-toggler {
+    background-color: #f1cece !important;
+}
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+    color: rgb(235, 200, 200) !important;
+}
+.navbar-light .navbar-brand {
+    color: rgb(235, 200, 200) !important;
+}
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    background-color: black !important;
+}
+a {
+    color: rgb(235, 200, 200) !important;
+}
+

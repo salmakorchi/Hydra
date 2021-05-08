@@ -1,0 +1,20 @@
+﻿.carousel-inner > .item {
+    height: 400px !important;
+}
+element.style{
+    width:324px!important;
+}
+.card-title{
+    text-align:left;
+    color:#ffa0a4;
+}
+.card{
+    border:none;
+    border-radius:0px 0px;
+}
+.pad {
+    margin-top: 88px;
+}
+a{
+    color:aliceblue;
+}

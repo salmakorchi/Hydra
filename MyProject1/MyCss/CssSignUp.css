@@ -1,0 +1,129 @@
+﻿*{
+    margin:0;
+    padding:0;
+}
+    *:focus {
+        outline: none;
+    }
+section {
+    background-image: url('../Img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 47vw;
+    height: 78vh;
+    background: rgba(0,0,0,0.5);
+    background-size:cover;
+    background-repeat:no-repeat;
+    position:relative;
+}
+span {
+    font-size: 2vw;
+    font-family: Georgia;
+    color: rgb(235, 200, 200);
+    display: block;
+}
+.container .inner1{
+    width:50%;
+    height:100%;
+    left:0;
+    text-align:center;
+    margin-top:5%;
+}
+.inner1 .btns {
+    border: none;
+    outline: none;
+    height: 50px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+   width:75%;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+    margin-top: 5px;
+    
+    text-decoration:none;
+}
+    
+#facebook{
+    background:blue;
+
+}
+#twitter{
+    background:#00ebff;
+}
+#google{
+    background:#b10c0c;
+}
+.inner2 {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background: rgb(235, 200, 200);
+    text-align: center;
+}
+h3{
+    font-size:2.5vw;
+    font-family:Georgia;
+    margin-bottom:9%;
+    margin-top:4%;
+}
+input[type=text],input[type=password]{
+    width:80%;
+  
+    height:10%;
+    margin-bottom:5%;
+    border:0;
+    background-color:transparent;
+    border-bottom:1px solid #4b4040;
+}
+input[placeholder]{
+    font-size:1vw;
+    padding-left:3%;
+    font-family:Georgia;
+
+}
+.btnSignup {
+    border: none;
+    outline: none;
+    height: 40px;
+    font-size: 25px;
+    color: rgb(235, 200, 200) !important;
+   
+    background-color: rgb(255, 0, 0);
+    cursor: pointer;
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+    margin-top: 5px;
+    width: 90%;
+}
+.btnSignup:hover {
+        background-color: rgb(255,217,9);
+    }
+.linklogin{
+    font-size: 1vw;
+    font-weight: 700;
+    text-decoration: none;
+    color: cadetblue;
+  
+}
+
+.labellogin{
+    color: black;
+    font-size:1vw;
+    font-weight: normal;
+ 
+    
+}
+.Validator {
+    color: #b10c0c;
+    font-size: 0.8vw;
+    font-weight: lighter;
+}
